@@ -1,8 +1,8 @@
 # DCOS Module
 
 module "ee-download-uri" {
-  source = "./uri"
-  dcos_version  = "${var.dcos_version}"
+  source       = "./uri"
+  dcos_version = "${var.dcos_version}"
 }
 
 data "template_file" "script" {
