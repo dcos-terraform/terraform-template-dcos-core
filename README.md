@@ -2,11 +2,6 @@ DC/OS Core Template
 ============
 A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in an automated fashion.
 
-Using you own AMI
------------------
-If you choose to use your own AMI please make sure the DC/OS related
-prerequisites are met. Take a look at https://docs.mesosphere.com/1.11/installing/ent/custom/system-requirements/install-docker-RHEL/
-
 EXAMPLE - Bootstrap Node
 -------
 
