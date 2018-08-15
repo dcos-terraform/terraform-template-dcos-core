@@ -266,7 +266,7 @@ Use this to make any type of Mesos agent you desire. In this example below is a 
      ]
    }
  }
- ```
+```
 
 EXAMPLE - Agents
 -------
@@ -313,8 +313,7 @@ EXAMPLE - Agents
      ]
    }
  }
-
- ```
+```
 
 
 ## Inputs
