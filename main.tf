@@ -379,7 +379,7 @@ data "template_file" "script" {
     dcos_cluster_docker_credentials_dcos_owned   = "${var.dcos_cluster_docker_credentials_dcos_owned}"
     dcos_cluster_docker_credentials_enabled      = "${var.dcos_cluster_docker_credentials_enabled}"
     dcos_cluster_docker_credentials_write_to_etc = "${var.dcos_cluster_docker_credentials_write_to_etc}"
-    dcos_name_prefix                            = "${var.dcos_name_prefix}"
+    dcos_name_prefix                             = "${var.dcos_name_prefix}"
     dcos_customer_key                            = "${var.dcos_customer_key}"
     dcos_dns_search                              = "${var.dcos_dns_search}"
     dcos_dns_forward_zones                       = "${var.dcos_dns_forward_zones}"
