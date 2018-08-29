@@ -83,5 +83,5 @@ for i in {1..5}; do curl -o dcos_generate_config.${dcos_version}.sh ${dcos_downl
 bash dcos_generate_config.${dcos_version}.sh --generate-node-upgrade-script $${OVERRIDE_PREVIOUS_DCOS_VERSION:-$${PREVIOUS_DCOS_VERSION}} || exit 1
 rm -fr genconf/serve/upgrade/current
 cp -r genconf/serve/upgrade/$(ls -1tr genconf/serve/upgrade/ | tail -1) genconf/serve/upgrade/current
-docker rm -f $(docker ps -a -q -f ancestor=nginx) &> /dev/null; if [[ $? -eq 0 ]]; then echo "reloaded nginx..."; fi
-docker run -d -p ${dcos_bootstrap_port}:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
+docker rm -f $(docker ps -a -q -f ancestor=nginx:1.15.0) &> /dev/null; if [[ $? -eq 0 ]]; then echo "reloaded nginx..."; fi
+docker run -d -p ${dcos_bootstrap_port}:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx:1.15.0

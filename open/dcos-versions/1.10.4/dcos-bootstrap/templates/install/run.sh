@@ -78,5 +78,5 @@ for i in {1..5}; do curl -o dcos_generate_config.${dcos_version}.sh ${dcos_downl
 cp /tmp/ip-detect genconf/. &> /dev/null; if [[ $? -ne 0 ]]; then echo "skipping absent /tmp/ip-detect file"; else echo "copied file /tmp/ip-detect to ~/genconf"; fi
 cp /tmp/ip-detect-public genconf/. &> /dev/null; if [[ $? -ne 0 ]]; then echo "skipping absent /tmp/ip-detect-public file"; else echo "copied file /tmp/ip-detect-public to ~/genconf"; fi
 bash dcos_generate_config.${dcos_version}.sh || exit 1
-docker rm -f $(docker ps -a -q -f ancestor=nginx) &> /dev/null; if [[ $? -eq 0 ]]; then echo "reloaded nginx..."; fi
-docker run -d -p ${dcos_bootstrap_port}:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
+docker rm -f $(docker ps -a -q -f ancestor=nginx:1.15.0) &> /dev/null; if [[ $? -eq 0 ]]; then echo "reloaded nginx..."; fi
+docker run -d -p ${dcos_bootstrap_port}:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx:1.15.0
