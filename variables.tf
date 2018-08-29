@@ -211,7 +211,7 @@ variable "dcos_superuser_password_hash" {
   description = "[Enterprise DC/OS] set the superuser password hash (recommended)"
 }
 
-variable "dcos_name_prefix" {
+variable "dcos_cluster_name" {
   default     = ""
   description = "sets the DC/OS cluster name"
 }
