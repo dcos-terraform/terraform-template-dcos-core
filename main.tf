@@ -328,14 +328,14 @@ module "ee-download-uri" {
 }
 
 locals {
-  dcos_generate_config_path = "${var.dcos_type == "open" ? "${module.open-download-uri.path}" : "${module.ee-download-uri.path}"}"
+  dcos_generate_config_path = "${var.dcos_variant == "open" ? "${module.open-download-uri.path}" : "${module.ee-download-uri.path}"}"
 }
 
 data "template_file" "script" {
-  template = "${file("${path.module}/${var.dcos_type}/dcos-versions/${var.dcos_version}/${var.role}/templates/${var.dcos_install_mode}/run.sh")}"
+  template = "${file("${path.module}/${var.dcos_variant}/dcos-versions/${var.dcos_version}/${var.role}/templates/${var.dcos_install_mode}/run.sh")}"
 
   vars {
-    dcos_type                                    = "${var.dcos_type}"
+    dcos_variant                                 = "${var.dcos_variant}"
     bootstrap_private_ip                         = "${var.bootstrap_private_ip}"
     dcos_bootstrap_port                          = "${var.dcos_bootstrap_port}"
     dcos_download_path                           = "${coalesce(var.custom_dcos_download_path, local.dcos_generate_config_path)}"
