@@ -482,7 +482,7 @@ variable "dcos_rexray_config" {
 
 variable "dcos_cluster_docker_registry_url" {
   default     = ""
-  description = "The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesosâ --docker_registry flag to the specified URL. (optional)"
+  description = "The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos’ --docker_registry flag to the specified URL. (optional)"
 }
 
 variable "custom_dcos_download_path" {
