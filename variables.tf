@@ -149,16 +149,6 @@ variable "dcos_exhibitor_address" {
   description = "The address of the load balancer in front of the masters (recommended)"
 }
 
-variable "num_of_public_agents" {
-  description = "num of public agents"
-  default     = ""
-}
-
-variable "num_of_private_agents" {
-  description = "num of private agents"
-  default     = ""
-}
-
 variable "dcos_num_masters" {
   default     = ""
   description = "set the num of master nodes (required with exhibitor_storage_backend set to aws_s3, azure, ZooKeeper)"
@@ -230,7 +220,7 @@ variable "dcos_ca_certificate_path" {
 }
 
 variable "dcos_ca_certificate_key_path" {
-  description = "dcos ca certificate key path"
+  description = "DC/OS CA certificate key path"
   default     = ""
 }
 
@@ -482,7 +472,7 @@ variable "dcos_rexray_config" {
 
 variable "dcos_cluster_docker_registry_url" {
   default     = ""
-  description = "The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos’ --docker_registry flag to the specified URL. (optional)"
+  description = "The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos --docker_registry flag to the specified URL. (optional)"
 }
 
 variable "custom_dcos_download_path" {
@@ -491,7 +481,7 @@ variable "custom_dcos_download_path" {
 }
 
 variable "dcos_cluster_docker_registry_enabled" {
-  description = "dcos cluster docker registry enabled"
+  description = "DC/OS cluster docker registry enabled"
   default     = ""
 }
 

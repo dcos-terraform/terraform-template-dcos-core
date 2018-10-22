@@ -341,15 +341,15 @@ EXAMPLE - Agents
 | dcos_bootstrap_port | Port of the bootstrap URL | string | `80` | no |
 | dcos_bouncer_expiration_auth_token_days | [Enterprise DC/OS] Sets the auth token time-to-live (TTL) for Identity and Access Management. (optional) | string | `` | no |
 | dcos_ca_certificate_chain_path | [Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. (optional) | string | `` | no |
-| dcos_ca_certificate_key_path | dcos ca certificate key path | string | `` | no |
+| dcos_ca_certificate_key_path | DC/OS CA certificate key path | string | `` | no |
 | dcos_ca_certificate_path | [Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing a single X.509 CA certificate in the OpenSSL PEM format. (optional) | string | `` | no |
 | dcos_check_time | Check if Network Time Protocol (NTP) is enabled during DC/OS startup. (optional) | string | `` | no |
 | dcos_cluster_docker_credentials | Dictionary of Docker credentials to pass. (optional) | string | `` | no |
 | dcos_cluster_docker_credentials_dcos_owned | Indicates whether to store the credentials file in /opt/mesosphere or /etc/mesosphere/docker_credentials. A sysadmin cannot edit /opt/mesosphere directly (optional) | string | `` | no |
 | dcos_cluster_docker_credentials_enabled | Indicates whether to pass the Mesos --docker_config option to Mesos. (optional) | string | `` | no |
 | dcos_cluster_docker_credentials_write_to_etc | Indicates whether to write a cluster credentials file. (optional) | string | `` | no |
-| dcos_cluster_docker_registry_enabled | dcos cluster docker registry enabled | string | `` | no |
-| dcos_cluster_docker_registry_url | The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos’ --docker_registry flag to the specified URL. (optional) | string | `` | no |
+| dcos_cluster_docker_registry_enabled | DC/OS cluster docker registry enabled | string | `` | no |
+| dcos_cluster_docker_registry_url | The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos --docker_registry flag to the specified URL. (optional) | string | `` | no |
 | dcos_cluster_name | sets the DC/OS cluster name | string | `` | no |
 | dcos_config | used to add any extra arguments in the config.yaml that are not specified here. (optional) | string | `` | no |
 | dcos_custom_checks | Custom installation checks that are added to the default check configuration process. (optional) | string | `` | no |
@@ -419,8 +419,6 @@ EXAMPLE - Agents
 | dcos_zk_agent_credentials | [Enterprise DC/OS] set the ZooKeeper agent credentials (recommended) | string | `` | no |
 | dcos_zk_master_credentials | [Enterprise DC/OS] set the ZooKeeper master credentials (recommended) | string | `` | no |
 | dcos_zk_super_credentials | [Enterprise DC/OS] set the zk super credentials (recommended) | string | `` | no |
-| num_of_private_agents | num of private agents | string | `` | no |
-| num_of_public_agents | num of public agents | string | `` | no |
 | role | specifies which dcos role of commands to run. Options: `dcos-bootstrap`, `dcos-mesos-agent-public`, `dcos-mesos-agent` and `dcos-mesos-master` | string | - | yes |
 
 ## Outputs
