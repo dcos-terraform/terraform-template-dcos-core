@@ -407,3 +407,7 @@ variable "dcos_staged_package_storage_uri" {
 variable "dcos_package_storage_uri" {
   default = ""
 }
+
+variable "dcos_enable_mesos_input_plugin" {
+  default = ""
+}

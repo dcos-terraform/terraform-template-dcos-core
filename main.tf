@@ -104,6 +104,7 @@
  *    dcos_enable_docker_gc = "${var.dcos_enable_docker_gc}"
  *    dcos_staged_package_storage_uri = "${var.dcos_staged_package_storage_uri}"
  *    dcos_package_storage_uri = "${var.dcos_package_storage_uri}"
+ *    dcos_enable_mesos_input_plugin = "${var.dcos_enable_mesos_input_plugin}"
  * }
  * resource "null_resource" "bootstrap" {
  *   triggers {
@@ -197,6 +198,7 @@
  *     dcos_enable_docker_gc = "${var.dcos_enable_docker_gc}"
  *     dcos_staged_package_storage_uri = "${var.dcos_staged_package_storage_uri}"
  *     dcos_package_storage_uri = "${var.dcos_package_storage_uri}"
+ *     dcos_enable_mesos_input_plugin = "${var.dcos_enable_mesos_input_plugin}"
  *   }
  *   connection {
  *     host = "${element(aws_instance.bootstrap.*.public_ip, 0)}"
@@ -433,5 +435,6 @@ data "template_file" "script" {
     dcos_enable_docker_gc                        = "${var.dcos_enable_docker_gc}"
     dcos_staged_package_storage_uri              = "${var.dcos_staged_package_storage_uri}"
     dcos_package_storage_uri                     = "${var.dcos_package_storage_uri}"
+    dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
   }
 }

@@ -106,5 +106,6 @@ data "template_file" "script" {
     dcos_enable_docker_gc                        = "${var.dcos_enable_docker_gc}"
     dcos_staged_package_storage_uri              = "${var.dcos_staged_package_storage_uri}"
     dcos_package_storage_uri                     = "${var.dcos_package_storage_uri}"
+    dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
   }
 }
