@@ -95,7 +95,7 @@ ${dcos_rexray_config == "" ? "" : "rexray_config: ${dcos_rexray_config}"}
 ${dcos_staged_package_storage_uri == "" ? "" : dcos_package_storage_uri == "" ? "" : "cosmos_config:"}
 ${dcos_staged_package_storage_uri == "" ? "" : "  staged_package_storage_uri: ${dcos_staged_package_storage_uri}"}
 ${dcos_package_storage_uri == "" ? "" : "  package_storage_uri: ${dcos_package_storage_uri}"}
-${dcos_enable_mesos_input_plugin == "" ? "" : "  enable_mesos_input_plugin: ${dcos_enable_mesos_input_plugin}"}
+${dcos_enable_mesos_input_plugin == "" ? "" : "enable_mesos_input_plugin: ${dcos_enable_mesos_input_plugin}"}
 ${dcos_config== "" ? "" : "${dcos_config}"}
 EOF
 curl -o dcos_generate_config.${dcos_version}.sh ${dcos_download_path}
