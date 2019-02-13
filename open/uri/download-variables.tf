@@ -33,6 +33,11 @@ variable "dcos_download_path" {
     "1.10.4"     = "https://downloads.dcos.io/dcos/stable/1.10.4/dcos_generate_config.sh"
     "1.10.5"     = "https://downloads.dcos.io/dcos/stable/1.10.5/dcos_generate_config.sh"
     "1.10.6"     = "https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"
+    "1.10.7"     = "https://downloads.dcos.io/dcos/stable/1.10.7/dcos_generate_config.sh"
+    "1.10.8"     = "https://downloads.dcos.io/dcos/stable/1.10.8/dcos_generate_config.sh"
+    "1.10.9"     = "https://downloads.dcos.io/dcos/stable/1.10.9/dcos_generate_config.sh"
+    "1.10.10"    = "https://downloads.dcos.io/dcos/stable/1.10.10/dcos_generate_config.sh"
+    "1.10.11"    = "https://downloads.dcos.io/dcos/stable/1.10.11/dcos_generate_config.sh"
     "1.11.0-rc1" = "https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"
     "1.11.0-rc4" = "https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc4/dcos_generate_config.sh"
     "1.11.0"     = "https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"
@@ -44,8 +49,11 @@ variable "dcos_download_path" {
     "1.11.6"     = "https://downloads.dcos.io/dcos/stable/1.11.6/dcos_generate_config.sh"
     "1.11.7"     = "https://downloads.dcos.io/dcos/stable/1.11.7/dcos_generate_config.sh"
     "1.11.8"     = "https://downloads.dcos.io/dcos/stable/1.11.8/dcos_generate_config.sh"
+    "1.11.9"     = "https://downloads.dcos.io/dcos/stable/1.11.9/dcos_generate_config.sh"
+    "1.11.10"    = "https://downloads.dcos.io/dcos/stable/1.11.10/dcos_generate_config.sh"
     "1.12.0"     = "https://downloads.dcos.io/dcos/stable/1.12.0/dcos_generate_config.sh"
     "1.12.1"     = "https://downloads.dcos.io/dcos/stable/1.12.1/dcos_generate_config.sh"
+    "1.12.2"     = "https://downloads.dcos.io/dcos/stable/1.12.2/dcos_generate_config.sh"
     "master"     = "https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh"
   }
 }
