@@ -15,7 +15,7 @@ variable "dcos_install_mode" {
 }
 
 variable "dcos_version" {
-  default     = "1.9.0"
+  default     = "1.12.2"
   description = "Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list."
 }
 
