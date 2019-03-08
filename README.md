@@ -3,7 +3,7 @@ DC/OS Core Template
 A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in an automated fashion.
 
 EXAMPLE - Bootstrap Node
--------
+----
 
 ```hcl
 module "dcos-bootstrap" {
@@ -221,7 +221,7 @@ resource "null_resource" "bootstrap" {
 ```
 
 EXAMPLE - Master Nodes
--------
+----
 Use this to make any type of Mesos agent you desire. In this example below is a public agent. You can have gpu agents, private agents, etc. They will be either use the `dcos-mesos-agent` or `dcos-mesos-agent-public` role.
 
 ```hcl
@@ -271,7 +271,7 @@ Use this to make any type of Mesos agent you desire. In this example below is a 
 ```
 
 EXAMPLE - Agents
--------
+----
 ```hcl
  module "dcos-mesos-agent-public" {
    source               = "github.com/dcos/tf_dcos_core"
@@ -318,7 +318,7 @@ EXAMPLE - Agents
 ```
 
 Releasing DCOS Versions
-------
+---
 
 When new versions of DCOS is released, we do not duplicate the same folder but check if there are new versions available and reuse the same DCOS install or upgrade instructions.
 This makes it easier to maintain the instructions as new changes are made in subsequent releases of DCOS. When a new version is released, you can simply reference the sha

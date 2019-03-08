@@ -421,7 +421,7 @@ variable "dcos_cluster_docker_credentials_enabled" {
 }
 
 variable "dcos_master_list" {
-  default     = ""
+  default     = []
   description = "statically set your master nodes (not recommended but required with exhibitor_storage_backend set to static. Use aws_s3 or azure instead, that way you can replace masters in the cloud.)"
 }
 
