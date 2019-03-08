@@ -6,7 +6,7 @@ module "ee-download-uri" {
 }
 
 data "template_file" "script" {
-  template = "${file("${path.module}/dcos-versions/${var.dcos_version}/${var.role}/templates/${var.dcos_install_mode}/run.sh")}"
+  template = "${file("${path.module}/dcos-versions/${var.meta_dcos_version[var.dcos_version]}/${var.role}/templates/${var.dcos_install_mode}/run.sh")}"
 
   vars {
     bootstrap_private_ip                         = "${var.bootstrap_private_ip}"

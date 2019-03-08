@@ -3,5 +3,5 @@ output "script" {
 }
 
 output "path" {
-  value = "${lookup(var.dcos_download_path, var.dcos_version, "download path non existant")}"
+  value = "${lookup(var.meta_dcos_version, var.dcos_version, "config.yaml instructions non existant")}"
 }

@@ -317,6 +317,21 @@ EXAMPLE - Agents
  }
 ```
 
+Releasing DCOS Versions
+------
+
+When new versions of DCOS is released, we do not duplicate the same folder but check if there are new versions available and reuse the same DCOS install or upgrade instructions.
+This makes it easier to maintain the instructions as new changes are made in subsequent releases of DCOS. When a new version is released, you can simply reference the sha
+in the [meta_dcos_versions.tf](https://github.com/dcos-terraform/terraform-template-dcos-core/blob/master/open/meta_dcos_versions.tf] file.
+
+```bash
+$ cd ee/dcos-versions
+$ for i in $(ls); do echo -ne "$i "; find $i -type f -print0 | xargs -0 sum | awk '{print $1}' | sum; done | sort --version-sort
+56127 56127     1
+32670 32670     1
+master 32670     1
+```
+
 
 ## Inputs
 
