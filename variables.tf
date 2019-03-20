@@ -5,22 +5,12 @@ variable "dcos_variant" {
 }
 
 variable "bootstrap_private_ip" {
-  default     = ""
   description = "Private IP bootstrap nginx is listening on. Used to build the bootstrap URL."
-}
-
-variable "dcos_install_mode" {
-  default     = "install"
-  description = "Type of command to execute. Options: install or upgrade"
 }
 
 variable "dcos_version" {
   default     = "1.12.2"
   description = "Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list."
-}
-
-variable "role" {
-  description = "specifies which dcos role of commands to run. Options: `dcos-bootstrap`, `dcos-mesos-agent-public`, `dcos-mesos-agent` and `dcos-mesos-master`"
 }
 
 # DCOS bootstrap node variables
@@ -30,12 +20,12 @@ variable "dcos_security" {
 }
 
 variable "dcos_resolvers" {
-  default     = ""
-  description = "A YAML nested list (-) of DNS resolvers for your DC/OS cluster nodes. (recommended)"
+  default     = ["8.8.8.8", "8.8.4.4"]
+  description = "list of DNS resolvers for your DC/OS cluster nodes. (recommended)"
 }
 
 variable "dcos_skip_checks" {
-  default     = "true"
+  default     = "false"
   description = "Upgrade option: Used to skip all dcos checks that may block an upgrade if any DC/OS component is unhealthly. (optional) applicable: 1.10+"
 }
 
@@ -421,12 +411,12 @@ variable "dcos_cluster_docker_credentials_enabled" {
 }
 
 variable "dcos_master_list" {
-  default     = ""
+  default     = []
   description = "statically set your master nodes (not recommended but required with exhibitor_storage_backend set to static. Use aws_s3 or azure instead, that way you can replace masters in the cloud.)"
 }
 
 variable "dcos_public_agent_list" {
-  default     = ""
+  default     = []
   description = "statically set your public agents (not recommended)"
 }
 
@@ -441,12 +431,12 @@ variable "dcos_previous_version_master_index" {
 }
 
 variable "dcos_agent_list" {
-  default     = ""
+  default     = []
   description = "used to list the agents in the config.yaml (optional)"
 }
 
 variable "dcos_bootstrap_port" {
-  default     = "80"
+  default     = "8080"
   description = "Port of the bootstrap URL"
 }
 
