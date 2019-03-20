@@ -5,22 +5,12 @@ variable "dcos_variant" {
 }
 
 variable "bootstrap_private_ip" {
-  default     = ""
   description = "Private IP bootstrap nginx is listening on. Used to build the bootstrap URL."
-}
-
-variable "dcos_install_mode" {
-  default     = "install"
-  description = "Type of command to execute. Options: install or upgrade"
 }
 
 variable "dcos_version" {
   default     = "1.12.2"
   description = "Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list."
-}
-
-variable "role" {
-  description = "specifies which dcos role of commands to run. Options: `dcos-bootstrap`, `dcos-mesos-agent-public`, `dcos-mesos-agent` and `dcos-mesos-master`"
 }
 
 # DCOS bootstrap node variables
@@ -35,7 +25,7 @@ variable "dcos_resolvers" {
 }
 
 variable "dcos_skip_checks" {
-  default     = "true"
+  default     = "false"
   description = "Upgrade option: Used to skip all dcos checks that may block an upgrade if any DC/OS component is unhealthly. (optional) applicable: 1.10+"
 }
 
