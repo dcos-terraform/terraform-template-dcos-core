@@ -1,7 +1,7 @@
 /**
  * DC/OS Core Template
  * ============
- * A Terraform module to generate DC/OS config
+ * A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in an automated fashion.
  *
  */
 

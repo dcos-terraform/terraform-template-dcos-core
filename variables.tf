@@ -9,8 +9,8 @@ variable "bootstrap_private_ip" {
 }
 
 variable "dcos_version" {
-  default     = "1.12.2"
-  description = "Specifies which DC/OS version instruction to use. Options: 1.9.0, 1.8.8, etc. See dcos_download_path or dcos_version tree for a full list."
+  default     = "1.12.3"
+  description = "Specifies which DC/OS version instruction to use. Options: 1.12.3, 1.11.10, etc. See dcos_download_path or dcos_version tree for a full list."
 }
 
 # DCOS bootstrap node variables
@@ -21,7 +21,7 @@ variable "dcos_security" {
 
 variable "dcos_resolvers" {
   default     = ["8.8.8.8", "8.8.4.4"]
-  description = "list of DNS resolvers for your DC/OS cluster nodes. (recommended)"
+  description = "A YAML nested list (-) of DNS resolvers for your DC/OS cluster nodes. (recommended)"
 }
 
 variable "dcos_skip_checks" {
