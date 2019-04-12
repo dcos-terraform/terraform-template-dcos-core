@@ -1,6 +1,6 @@
 # Main Variables
 variable "dcos_variant" {
-  description = "Main Variables"
+  description = "Specifies which DC/OS variant it should be: `open` (Open Source) or `ee` (Enterprise Edition)"
   default     = "open"
 }
 
@@ -210,7 +210,7 @@ variable "dcos_ca_certificate_path" {
 }
 
 variable "dcos_ca_certificate_key_path" {
-  description = "DC/OS CA certificate key path"
+  description = "[Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing a single X.509 certificate private key in the OpenSSL PEM format. (optional)"
   default     = ""
 }
 
