@@ -18,6 +18,7 @@ variable "dcos_ee_download_path" {
     "1.12.2"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.12.2/commit/c3af9042b96c5f70ca304083d1ac760ccf82ad69/dcos_generate_config.ee.sh"
     "1.12.3"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.12.3/commit/e8ecb9c00dc5bdc27d830df0b7fc91b6311660b8/dcos_generate_config.ee.sh"
     "1.13.0-alpha" = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-alpha/commit/4da3d45e19ce0c04193a237d5a170e0b08108305/dcos_generate_config.ee.sh"
+    "1.13.0-beta"  = "http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-beta/commit/7d38a400be9f3773ec58fdbbe5e19a96ea8f9e59/dcos_generate_config.ee.sh"
     "master"       = "https://downloads.mesosphere.com/dcos-enterprise/testing/master/dcos_generate_config.ee.sh"
   }
 }
@@ -77,6 +78,7 @@ variable "dcos_open_download_path" {
     "1.12.2"       = "https://downloads.dcos.io/dcos/stable/1.12.2/dcos_generate_config.sh"
     "1.12.3"       = "https://downloads.dcos.io/dcos/stable/1.12.3/dcos_generate_config.sh"
     "1.13.0-alpha" = "https://downloads.dcos.io/dcos/stable/1.13.0-alpha/commit/633f96c6b97ee6b48eb20cbd06f92cbfc01a6622/dcos_generate_config.sh"
+    "1.13.0-beta"  = "https://downloads.dcos.io/dcos/stable/1.13.0-beta/commit/ac4a32dbdcdb5a2edcb99a57ca80e0f77bdb553a/dcos_generate_config.sh"
     "master"       = "https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh"
   }
 }
