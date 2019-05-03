@@ -21,6 +21,8 @@ variable "dcos_ee_download_path" {
     "1.13.0-beta"  = "http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-beta/commit/7d38a400be9f3773ec58fdbbe5e19a96ea8f9e59/dcos_generate_config.ee.sh"
     "master"       = "https://downloads.mesosphere.com/dcos-enterprise/testing/master/dcos_generate_config.ee.sh"
   }
+
+  description = "This is the path of all the enterprise dcos_generate_config.sh by version"
 }
 
 variable "dcos_open_download_path" {
@@ -81,4 +83,6 @@ variable "dcos_open_download_path" {
     "1.13.0-beta"  = "https://downloads.dcos.io/dcos/stable/1.13.0-beta/commit/ac4a32dbdcdb5a2edcb99a57ca80e0f77bdb553a/dcos_generate_config.sh"
     "master"       = "https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh"
   }
+
+  description = "This is the path of all the open dcos_generate_config.sh by version"
 }
