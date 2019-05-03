@@ -4,6 +4,6 @@ output "config" {
 }
 
 output "download_url" {
-  value = "${coalesce(var.custom_dcos_download_path, local.dcos_download_path)}"
+  value       = "${coalesce(var.custom_dcos_download_path, local.dcos_download_path)}"
   description = "This returns the download url either from the custom_dcos_download_path or known list"
 }
