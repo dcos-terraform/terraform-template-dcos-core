@@ -113,5 +113,5 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | Name | Description |
 |------|-------------|
 | config | The battle-tested provisioner contents of the output by DC/OS role to perform requried admin actions in behalf of the user as documented in http://mesosphere.com and http://dcos.io |
-| download\_url |  |
+| download\_url | This returns the download url either from the custom_dcos_download_path or known list |
 
