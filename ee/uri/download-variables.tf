@@ -19,6 +19,7 @@ variable "dcos_download_path" {
     "1.12.3"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.12.3/commit/e8ecb9c00dc5bdc27d830df0b7fc91b6311660b8/dcos_generate_config.ee.sh"
     "1.13.0-alpha" = "http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-alpha/commit/4da3d45e19ce0c04193a237d5a170e0b08108305/dcos_generate_config.ee.sh"
     "1.13.0-beta"  = "http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-beta/commit/7d38a400be9f3773ec58fdbbe5e19a96ea8f9e59/dcos_generate_config.ee.sh"
+    "1.13.0"       = "http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/commit/1ec160b03e26d6e951083f524945c1ed2af3f3a3/dcos_generate_config.ee.sh"
     "master"       = "https://downloads.mesosphere.com/dcos-enterprise/testing/master/dcos_generate_config.ee.sh"
   }
 }
