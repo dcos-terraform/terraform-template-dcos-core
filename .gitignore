@@ -69,3 +69,4 @@ $RECYCLE.BIN/
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars
+*.log

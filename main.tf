@@ -21,7 +21,7 @@ data "http" "dcos_version" {
   url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=version"
 }
 
-// commit hash is used for following master or branchhes. This is not meant for production
+// commit hash is used for following master or branches. This is not meant for production
 data "http" "dcos_commit" {
   count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
   url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=commit"
