@@ -23,7 +23,7 @@ baz
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
-                        "dcos_num_masters":                  "1",
+			"dcos_num_masters":                  "1",
 			"bootstrap_private_ip":              expectedIP,
 			"dcos_fault_domain_detect_contents": multiLineText,
 			"dcos_ip_detect_contents":           multiLineText,
