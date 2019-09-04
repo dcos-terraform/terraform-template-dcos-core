@@ -4,6 +4,21 @@ output "config" {
 }
 
 output "download_url" {
-  value       = "${coalesce(var.custom_dcos_download_path, local.dcos_download_path)}"
+  value       = "${local.dcos_download_path}"
   description = "This returns the download url either from the custom_dcos_download_path or known list"
+}
+
+output "download_url_checksum" {
+  value       = "${local.dcos_download_checksum}"
+  description = "This returns the sha256 checksum to download_url"
+}
+
+output "version" {
+  value       = "${local.dcos_version}"
+  description = "This returns the DC/OS version"
+}
+
+output "commit" {
+  value       = "${local.dcos_commit}"
+  description = "This returns the sha256 checksum to download_url"
 }
