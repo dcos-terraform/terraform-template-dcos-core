@@ -1,7 +1,6 @@
 package test
 
 import (
-	"strings"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -18,19 +17,17 @@ bar
 baz
 `
 
-	//ugly workaround for -var issue with terratest
-	escapedMultiLineText := strings.Replace(multiLineText, "\n", "\\n", -1)
-
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../examples/base",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
+                        "dcos_num_masters":                  "1",
 			"bootstrap_private_ip":              expectedIP,
-			"dcos_fault_domain_detect_contents": escapedMultiLineText,
-			"dcos_ip_detect_contents":           escapedMultiLineText,
-			"dcos_ip_detect_public_contents":    escapedMultiLineText,
+			"dcos_fault_domain_detect_contents": multiLineText,
+			"dcos_ip_detect_contents":           multiLineText,
+			"dcos_ip_detect_public_contents":    multiLineText,
 		},
 
 		// Variables to pass to our Terraform code using -var-file options
@@ -78,6 +75,7 @@ func TestVersionService(t *testing.T) {
 
 			// Variables to pass to our Terraform code using -var options
 			Vars: map[string]interface{}{
+				"dcos_num_masters":     "1",
 				"dcos_version":         v,
 				"bootstrap_private_ip": "192.168.1.2",
 			},
@@ -110,6 +108,7 @@ func TestVersionAirGapped(t *testing.T) {
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
+			"dcos_num_masters":          "1",
 			"dcos_version":              "1.13.1",
 			"custom_dcos_download_path": "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
 			"bootstrap_private_ip":      "192.168.1.2",
