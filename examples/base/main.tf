@@ -104,3 +104,19 @@ module "dcos-core-base-example" {
 output "config" {
   value = "---\n${module.dcos-core-base-example.config}"
 }
+
+output "download_url" {
+  value = "${module.dcos-core-base-example.download_url}"
+}
+
+output "download_url_checksum" {
+  value = "${module.dcos-core-base-example.download_url_checksum}"
+}
+
+output "version" {
+  value = "${module.dcos-core-base-example.version}"
+}
+
+output "commit" {
+  value = "${module.dcos-core-base-example.commit}"
+}

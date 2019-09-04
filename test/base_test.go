@@ -11,9 +11,6 @@ import (
 
 // An example of how to test the simple Terraform module in examples/terraform-basic-example using Terratest.
 func TestBase(t *testing.T) {
-
-	t.Parallel()
-
 	expectedIP := "expected_ip"
 
 	multiLineText := `foo
@@ -59,7 +56,82 @@ baz
 	resolvers, err := config.Get("resolvers").Array()
 	assert.NoError(t, err)
 	assert.Equal(t, 2, len(resolvers))
-	ip_detect_contents, err := config.Get("ip_detect_contents").String()
+	ipDetectContents, err := config.Get("ip_detect_contents").String()
 	assert.NoError(t, err)
-	assert.Equal(t, multiLineText, ip_detect_contents)
+	assert.Equal(t, multiLineText, ipDetectContents)
+}
+
+func TestVersionService(t *testing.T) {
+	versionTests := map[string]map[string]string{
+		"1.13.1": map[string]string{
+			"download_url":          "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
+			"version":               "1.13.1",
+			"download_url_checksum": "ff9c69412395705fad7887900ad6204a60c950bfd9ec61b62c91630e92536be0",
+			"commit":                "",
+		},
+	}
+
+	for v := range versionTests {
+		terraformOptions := &terraform.Options{
+			// The path to where our Terraform code is located
+			TerraformDir: "../examples/base",
+
+			// Variables to pass to our Terraform code using -var options
+			Vars: map[string]interface{}{
+				"dcos_version":         v,
+				"bootstrap_private_ip": "192.168.1.2",
+			},
+
+			// Variables to pass to our Terraform code using -var-file options
+			// VarFiles: []string{"varfile.tfvars"},
+
+			// Disable colors in Terraform commands so its easier to parse stdout/stderr
+			NoColor: true,
+		}
+
+		// At the end of the test, run `terraform destroy` to clean up any resources that were created
+		defer terraform.Destroy(t, terraformOptions)
+
+		// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
+		terraform.InitAndApply(t, terraformOptions)
+
+		// Run `terraform output` to get the values of output variables
+		assert.Equal(t, versionTests[v]["download_url"], terraform.Output(t, terraformOptions, "download_url"))
+		assert.Equal(t, versionTests[v]["version"], terraform.Output(t, terraformOptions, "version"))
+		assert.Equal(t, versionTests[v]["download_url_checksum"], terraform.Output(t, terraformOptions, "download_url_checksum"))
+		assert.Equal(t, versionTests[v]["commit"], terraform.Output(t, terraformOptions, "commit"))
+	}
+}
+
+func TestVersionAirGapped(t *testing.T) {
+	terraformOptions := &terraform.Options{
+		// The path to where our Terraform code is located
+		TerraformDir: "../examples/base",
+
+		// Variables to pass to our Terraform code using -var options
+		Vars: map[string]interface{}{
+			"dcos_version":              "1.13.1",
+			"custom_dcos_download_path": "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
+			"bootstrap_private_ip":      "192.168.1.2",
+		},
+
+		// Variables to pass to our Terraform code using -var-file options
+		// VarFiles: []string{"varfile.tfvars"},
+
+		// Disable colors in Terraform commands so its easier to parse stdout/stderr
+		NoColor: true,
+	}
+
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	defer terraform.Destroy(t, terraformOptions)
+
+	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
+	terraform.InitAndApply(t, terraformOptions)
+
+	// Run `terraform output` to get the values of output variables
+	assert.Equal(t, "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh", terraform.Output(t, terraformOptions, "download_url"))
+	assert.Equal(t, "1.13.1", terraform.Output(t, terraformOptions, "version"))
+	// we expect thhose to be empty as we're not asking the version serice in this case
+	assert.Equal(t, "", terraform.Output(t, terraformOptions, "download_url_checksum"))
+	assert.Equal(t, "", terraform.Output(t, terraformOptions, "commit"))
 }

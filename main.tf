@@ -5,10 +5,33 @@
  *
  */
 
+data "http" "dcos_url" {
+  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
+  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=url"
+}
+
+data "http" "dcos_sha256" {
+  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
+  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=sha256"
+}
+
+// exact version is needed for latest keyword or minor version
+data "http" "dcos_version" {
+  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
+  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=version"
+}
+
+// commit hash is used for following master or branches. This is not meant for production
+data "http" "dcos_commit" {
+  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
+  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=commit"
+}
+
 locals {
-  dcos_download_path_ee   = "${lookup(var.dcos_ee_download_path, var.dcos_version, "DCOS GENERATE CONFIG INSTALLER DOWNLOAD PATH WAS NOT PROVIDED")}"
-  dcos_download_path_open = "${lookup(var.dcos_open_download_path , var.dcos_version, "DCOS GENERATE CONFIG INSTALLER DOWNLOAD PATH WAS NOT PROVIDED")}"
-  dcos_download_path      = "${var.dcos_variant == "open" ? local.dcos_download_path_open : local.dcos_download_path_ee}"
+  dcos_download_path     = "${coalesce(var.custom_dcos_download_path,element(coalescelist(data.http.dcos_url.*.body,list("")), 0))}"
+  dcos_download_checksum = "${var.custom_dcos_download_path == "" ? element(coalescelist(data.http.dcos_sha256.*.body,list("")),0): ""}"
+  dcos_version           = "${var.custom_dcos_download_path == "" ? element(coalescelist(data.http.dcos_version.*.body,list("")),0): var.dcos_version}"
+  dcos_commit            = "${var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? element(coalescelist(data.http.dcos_commit.*.body,list("")),0) : "" : ""}"
 }
 
 data "template_file" "config" {
