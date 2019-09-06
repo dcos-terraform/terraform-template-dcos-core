@@ -1,0 +1,75 @@
+2019/09/06 09:45:55 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/06 09:45:55 [INFO] Go runtime version: go1.12
+2019/09/06 09:45:55 [INFO] CLI args: []string{"/bin/terraform", "init", "-upgrade"}
+2019/09/06 09:45:55 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/06 09:45:55 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/06 09:45:55 [INFO] CLI command args: []string{"init", "-upgrade"}
+2019/09/06 09:45:55 [DEBUG] command: loading backend config file: /jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4
+2019/09/06 09:45:55 [DEBUG] fetching module from file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/open/uri
+2019/09/06 09:45:55 [DEBUG] fetching "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/open/uri" with key "1.open-download-uri;./open/uri"
+2019/09/06 09:45:55 [DEBUG] found "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/open/uri" in ".terraform/modules/8d67826929c7ed596d62bce967def294": true
+2019/09/06 09:45:55 [TRACE] "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/open/uri" stored in ".terraform/modules/8d67826929c7ed596d62bce967def294"
+2019/09/06 09:45:55 [DEBUG] fetching module from file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/ee/uri
+2019/09/06 09:45:55 [DEBUG] fetching "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/ee/uri" with key "1.ee-download-uri;./ee/uri"
+2019/09/06 09:45:55 [DEBUG] found "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/ee/uri" in ".terraform/modules/05864473f275cdc4f640916a0c68bb2a": true
+2019/09/06 09:45:55 [TRACE] "file:///jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/ee/uri" stored in ".terraform/modules/05864473f275cdc4f640916a0c68bb2a"
+2019/09/06 09:45:55 [INFO] command: empty terraform config, returning nil
+2019/09/06 09:45:55 [DEBUG] command: no data state file found for backend config
+2019/09/06 09:45:55 [DEBUG] New state was assigned lineage "56117841-938b-f289-0d7a-19a72616bd31"
+2019/09/06 09:45:55 [INFO] command: backend initialized: <nil>
+2019/09/06 09:45:55 [DEBUG] checking for provider in "."
+2019/09/06 09:45:55 [DEBUG] checking for provider in "/bin"
+2019/09/06 09:45:55 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/06 09:45:55 [DEBUG] found provider "terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:55 [DEBUG] found valid plugin: "template", "2.1.2", "/jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/.terraform/plugins/linux_amd64/terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:55 [DEBUG] checking for provisioner in "."
+2019/09/06 09:45:55 [DEBUG] checking for provisioner in "/bin"
+2019/09/06 09:45:55 [DEBUG] checking for provisioner in ".terraform/plugins/linux_amd64"
+2019/09/06 09:45:55 [INFO] command: backend <nil> is not enhanced, wrapping in local
+2019/09/06 09:45:55 [DEBUG] checking for provider in "."
+2019/09/06 09:45:55 [DEBUG] checking for provider in "/bin"
+2019/09/06 09:45:55 [DEBUG] plugin requirements: "template"=""
+2019/09/06 09:45:56 [DEBUG] fetching provider info for template version 2.1.2
+2019/09/06 09:45:56 [DEBUG] getting provider "template" version "2.1.2"
+2019/09/06 09:45:56 [DEBUG] plugin cache is disabled, so downloading template 2.1.2 from https://releases.hashicorp.com/terraform-provider-template/2.1.2/terraform-provider-template_2.1.2_linux_amd64.zip?checksum=sha256:149e4bf47ac21b67f6567767afcd29caaf0b0ca43714748093a00a2a98cd17a8
+2019/09/06 09:45:56 [DEBUG] looking for the template 2.1.2 plugin we just installed
+2019/09/06 09:45:56 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/06 09:45:56 [DEBUG] found provider "terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:56 [DEBUG] all plugins found discovery.PluginMetaSet{discovery.PluginMeta{Name:"template", Version:"2.1.2", Path:"/jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/.terraform/plugins/linux_amd64/terraform-provider-template_v2.1.2_x4"}:struct {}{}}
+2019/09/06 09:45:56 [DEBUG] filtered plugins discovery.PluginMetaSet{discovery.PluginMeta{Name:"template", Version:"2.1.2", Path:"/jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/.terraform/plugins/linux_amd64/terraform-provider-template_v2.1.2_x4"}:struct {}{}}
+2019/09/06 09:45:56 [DEBUG] checking for provider in "."
+2019/09/06 09:45:56 [DEBUG] checking for provider in "/bin"
+2019/09/06 09:45:56 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/06 09:45:56 [DEBUG] found provider "terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:56 [DEBUG] found valid plugin: "template", "2.1.2", "/jenkins/workspace/e-dcos-core_0.1.x-version-1.13.4/.terraform/plugins/linux_amd64/terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:56 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/06 09:45:56 [DEBUG] found provider "terraform-provider-template_v2.1.2_x4"
+2019/09/06 09:45:56 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/06 09:45:56 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/06 09:45:56 [INFO] Go runtime version: go1.12
+2019/09/06 09:45:56 [INFO] CLI args: []string{"/bin/terraform", "validate", "-check-variables=false"}
+2019/09/06 09:45:56 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/06 09:45:56 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/06 09:45:56 [INFO] CLI command args: []string{"validate", "-check-variables=false"}
+2019/09/06 09:45:56 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/06 09:46:08 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/06 09:46:08 [INFO] Go runtime version: go1.12
+2019/09/06 09:46:08 [INFO] CLI args: []string{"/bin/terraform", "fmt", "main.tf"}
+2019/09/06 09:46:08 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/06 09:46:08 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/06 09:46:08 [INFO] CLI command args: []string{"fmt", "main.tf"}
+2019/09/06 09:46:08 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/06 09:46:08 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/06 09:46:08 [INFO] Go runtime version: go1.12
+2019/09/06 09:46:08 [INFO] CLI args: []string{"/bin/terraform", "fmt", "outputs.tf"}
+2019/09/06 09:46:08 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/06 09:46:08 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/06 09:46:08 [INFO] CLI command args: []string{"fmt", "outputs.tf"}
+2019/09/06 09:46:08 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/06 09:46:08 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/06 09:46:08 [INFO] Go runtime version: go1.12
+2019/09/06 09:46:08 [INFO] CLI args: []string{"/bin/terraform", "fmt", "variables.tf"}
+2019/09/06 09:46:08 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/06 09:46:08 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/06 09:46:08 [INFO] CLI command args: []string{"fmt", "variables.tf"}
+2019/09/06 09:46:08 [DEBUG] plugin: waiting for all plugin processes to complete...
