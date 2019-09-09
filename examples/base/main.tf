@@ -2,6 +2,7 @@ module "dcos-core-base-example" {
   source = "../../"
 
   bootstrap_private_ip                         = "${var.bootstrap_private_ip}"
+  dcos_num_masters                             = "${var.num_masters}"
   custom_dcos_download_path                    = "${var.custom_dcos_download_path}"
   dcos_adminrouter_tls_1_0_enabled             = "${var.dcos_adminrouter_tls_1_0_enabled}"
   dcos_adminrouter_tls_1_1_enabled             = "${var.dcos_adminrouter_tls_1_1_enabled}"
