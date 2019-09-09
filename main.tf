@@ -5,33 +5,17 @@
  *
  */
 
-data "http" "dcos_url" {
-  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
-  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=url"
-}
-
-data "http" "dcos_sha256" {
-  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
-  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=sha256"
-}
-
 // exact version is needed for latest keyword or minor version
 data "http" "dcos_version" {
   count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
-  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=version"
-}
-
-// commit hash is used for following master or branches. This is not meant for production
-data "http" "dcos_commit" {
-  count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
-  url   = "https://versions.mesosphere.com/version/${var.dcos_variant}/${var.dcos_version}?filter=commit"
+  url   = "${var.dcos_versions_service_url}/version/${var.dcos_variant}/${var.dcos_version}?filter=version,url,sha256,commit"
 }
 
 locals {
-  dcos_download_path     = "${coalesce(var.custom_dcos_download_path,element(coalescelist(data.http.dcos_url.*.body,list("")), 0))}"
-  dcos_download_checksum = "${var.custom_dcos_download_path == "" ? element(coalescelist(data.http.dcos_sha256.*.body,list("")),0): ""}"
-  dcos_version           = "${var.custom_dcos_download_path == "" ? element(coalescelist(data.http.dcos_version.*.body,list("")),0): var.dcos_version}"
-  dcos_commit            = "${var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? element(coalescelist(data.http.dcos_commit.*.body,list("")),0) : "" : ""}"
+  dcos_download_path     = "${coalesce(var.custom_dcos_download_path,element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),1))}"
+  dcos_download_checksum = "${var.custom_dcos_download_path == "" ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),2): ""}"
+  dcos_version           = "${var.custom_dcos_download_path == "" ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),0): var.dcos_version}"
+  dcos_commit            = "${var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),3) : "" : ""}"
 }
 
 data "template_file" "config" {
