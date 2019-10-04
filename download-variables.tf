@@ -26,6 +26,7 @@ variable "dcos_ee_download_path" {
     "1.13.2"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.2/dcos_generate_config.ee.sh"
     "1.13.3"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.3/dcos_generate_config.ee.sh"
     "1.13.4"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.4/dcos_generate_config.ee.sh"
+    "1.13.5"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.5/dcos_generate_config.ee.sh"
     "1.14.0-alpha" = "https://downloads.mesosphere.com/dcos-enterprise/stable/1.14.0-alpha/dcos_generate_config.ee.sh"
     "master"       = "https://downloads.mesosphere.com/dcos-enterprise/testing/master/dcos_generate_config.ee.sh"
   }
@@ -96,6 +97,7 @@ variable "dcos_open_download_path" {
     "1.13.2"       = "https://downloads.dcos.io/dcos/stable/1.13.2/dcos_generate_config.sh"
     "1.13.3"       = "https://downloads.dcos.io/dcos/stable/1.13.3/dcos_generate_config.sh"
     "1.13.4"       = "https://downloads.dcos.io/dcos/stable/1.13.4/dcos_generate_config.sh"
+    "1.13.5"       = "https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh"
     "1.14.0-alpha" = "https://downloads.dcos.io/dcos/stable/1.14.0-alpha/dcos_generate_config.sh"
     "master"       = "https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh"
   }
