@@ -116,4 +116,3 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | download\_url | This returns the download url either from the custom_dcos_download_path or known list |
 | download\_url\_checksum | This returns the sha256 checksum to download_url |
 | version | This returns the DC/OS version |
-
