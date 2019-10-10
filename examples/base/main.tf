@@ -2,7 +2,7 @@ module "dcos-core-base-example" {
   source = "../../"
 
   bootstrap_private_ip                         = "${var.bootstrap_private_ip}"
-  dcos_num_masters                             = "${var.num_masters}"
+  dcos_num_masters                             = "${var.dcos_num_masters}"
   custom_dcos_download_path                    = "${var.custom_dcos_download_path}"
   dcos_adminrouter_tls_1_0_enabled             = "${var.dcos_adminrouter_tls_1_0_enabled}"
   dcos_adminrouter_tls_1_1_enabled             = "${var.dcos_adminrouter_tls_1_1_enabled}"
@@ -67,7 +67,6 @@ module "dcos-core-base-example" {
   dcos_mesos_dns_set_truncate_bit              = "${var.dcos_mesos_dns_set_truncate_bit}"
   dcos_mesos_max_completed_tasks_per_framework = "${var.dcos_mesos_max_completed_tasks_per_framework}"
   dcos_no_proxy                                = "${var.dcos_no_proxy}"
-  dcos_num_masters                             = "${var.dcos_num_masters}"
   dcos_oauth_enabled                           = "${var.dcos_oauth_enabled}"
   dcos_overlay_config_attempts                 = "${var.dcos_overlay_config_attempts}"
   dcos_overlay_enable                          = "${var.dcos_overlay_enable}"
