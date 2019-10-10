@@ -66,6 +66,12 @@ func TestVersionService(t *testing.T) {
 			"download_url_checksum": "ff9c69412395705fad7887900ad6204a60c950bfd9ec61b62c91630e92536be0",
 			"commit":                "",
 		},
+		"1.13.5": map[string]string{
+			"download_url":          "https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh",
+			"version":               "1.13.5",
+			"download_url_checksum": "205218299e76267fde5bba7f4e6dec79fbbf7589702e73b9315c3ad4d36bb27a",
+			"commit":                "",
+		},
 	}
 
 	for v := range versionTests {
