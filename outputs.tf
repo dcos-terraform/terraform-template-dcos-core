@@ -20,5 +20,5 @@ output "version" {
 
 output "commit" {
   value       = "${local.dcos_commit}"
-  description = "This returns the sha256 checksum to download_url"
+  description = "This returns the commit sha of the DC/OS version"
 }
