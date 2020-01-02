@@ -499,3 +499,33 @@ variable "dcos_enable_mesos_input_plugin" {
   default     = ""
   description = "Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false` (optional)"
 }
+
+variable "dcos_calico_network_cidr" {
+  default     = ""
+  description = "Subnet allocated for calico"
+}
+
+variable "dcos_calico_vxlan_enabled" {
+  default     = ""
+  description = "Control whether IP-in-IP or VXLAN mode is used for calico. (optional)"
+}
+
+variable "dcos_calico_ipinip_mtu" {
+  default     = ""
+  description = "The MTU to set on the Calico IPIP tunnel device. (optional)"
+}
+
+variable "dcos_calico_vxlan_vni" {
+  default     = ""
+  description = "The virtual network ID used for calico VXLAN. (optional)"
+}
+
+variable "dcos_calico_vxlan_mtu" {
+  default     = ""
+  description = "The MTU to set on the Calico VXLAN tunnel device. (optional)"
+}
+
+variable "dcos_calico_veth_mtu" {
+  default     = ""
+  description = "The MTU to set on the veth pair devices. (optional)"
+}

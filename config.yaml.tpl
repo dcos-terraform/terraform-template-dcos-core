@@ -19,6 +19,13 @@ ${dcos_adminrouter_tls_cipher_suite== "" ? "" : "adminrouter_tls_cipher_suite: $
 ${dcos_ca_certificate_path== "" ? "" : "ca_certificate_path: ${dcos_ca_certificate_path}"}
 ${dcos_ca_certificate_key_path== "" ? "" : "ca_certificate_key_path: ${dcos_ca_certificate_key_path}"}
 ${dcos_ca_certificate_chain_path== "" ? "" : "ca_certificate_chain_path: ${dcos_ca_certificate_chain_path}"}
+${dcos_calico_network_cidr == "" ? "" : "calico_network_cidr: ${dcos_calico_network_cidr}"}
+${dcos_calico_vxlan_enabled == "" ? "" : "calico_vxlan_enabled: ${dcos_calico_vxlan_enabled}"}
+${dcos_calico_ipinip_mtu == "" ? "" : "calico_ipinip_mtu: ${dcos_calico_ipinip_mtu}"}
+${dcos_calico_vxlan_mtu == "" ? "" : "calico_calico_vxlan_mtu: ${dcos_calico_vxlan_mtu}"}
+${dcos_calico_vxlan_port == "" ? "" : "calico_vxlan_port: ${dcos_calico_vxlan_port}"}
+${dcos_calico_vxlan_vni == "" ? "" : "calico_vxlan_vni: ${dcos_calico_vxlan_vni}"}
+${dcos_calico_veth_mtu == "" ? "" : "calico_veth_mtu: ${dcos_calico_veth_mtu}"}
 ${dcos_exhibitor_storage_backend== "" ? "" : "exhibitor_storage_backend: ${dcos_exhibitor_storage_backend}"}
 ${dcos_exhibitor_storage_backend == "zookeeper" ? dcos_exhibitor_zk_hosts== "" ? "" : "exhibitor_zk_hosts: ${dcos_exhibitor_zk_hosts}" : ""}
 ${dcos_exhibitor_storage_backend == "zookeeper" ? dcos_exhibitor_zk_path== "" ? "" : "exhibitor_zk_path: ${dcos_exhibitor_zk_path}" : ""}
