@@ -510,6 +510,11 @@ variable "dcos_calico_vxlan_enabled" {
   description = "Control whether IP-in-IP or VXLAN mode is used for calico. (optional)"
 }
 
+variable "dcos_calico_vxlan_port" {
+  default     = ""
+  description = "The UDP port used for calico VXLAN. (optional)"
+}
+
 variable "dcos_calico_ipinip_mtu" {
   default     = ""
   description = "The MTU to set on the Calico IPIP tunnel device. (optional)"

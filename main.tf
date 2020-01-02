@@ -47,6 +47,7 @@ data "template_file" "config" {
     dcos_ca_certificate_path                     = "${var.dcos_ca_certificate_path}"
     dcos_calico_network_cidr                     = "${var.dcos_calico_network_cidr}"
     dcos_calico_vxlan_enabled                    = "${var.dcos_calico_vxlan_enabled}"
+    dcos_calico_vxlan_port                       = "${var.dcos_calico_vxlan_port}"
     dcos_calico_ipinip_mtu                       = "${var.dcos_calico_ipinip_mtu}"
     dcos_calico_vxlan_mtu                        = "${var.dcos_calico_vxlan_mtu}"
     dcos_calico_vxlan_port                       = "${var.dcos_calico_vxlan_port}"

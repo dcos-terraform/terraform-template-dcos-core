@@ -21,6 +21,7 @@ ${dcos_ca_certificate_key_path == "" ? "" : "ca_certificate_key_path: ${dcos_ca_
 ${dcos_ca_certificate_chain_path == "" ? "" : "ca_certificate_chain_path: ${dcos_ca_certificate_chain_path}"}
 ${dcos_calico_network_cidr == "" ? "" : "calico_network_cidr: ${dcos_calico_network_cidr}"}
 ${dcos_calico_vxlan_enabled == "" ? "" : "calico_vxlan_enabled: ${dcos_calico_vxlan_enabled}"}
+${dcos_calico_vxlan_port == "" ? "" : "calico_vxlan_port: ${dcos_calico_vxlan_port}"}
 ${dcos_calico_ipinip_mtu == "" ? "" : "calico_ipinip_mtu: ${dcos_calico_ipinip_mtu}"}
 ${dcos_calico_vxlan_mtu == "" ? "" : "calico_calico_vxlan_mtu: ${dcos_calico_vxlan_mtu}"}
 ${dcos_calico_vxlan_port == "" ? "" : "calico_vxlan_port: ${dcos_calico_vxlan_port}"}
