@@ -7,7 +7,6 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | n/a | yes |
-| dcos\_calico\_network\_cidr | Subnet allocated for calico. When windows is not enabled, this field MUST be set by the operator as a mandatory configuration considering possible unrecoverable accidents when the subnet used by Calico conflicts with the ones for infrastructure etc. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](https://github.com/mesosphere/dcos-docs-site/blob/staging/pages/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/index.md#dcos_overlay_enable). | string | n/a | yes when windows is not enabled |
 | custom\_dcos\_download\_path | insert location of dcos installer script (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_0\_enabled | Indicates whether to enable TLSv1 support in Admin Router. (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_1\_enabled | Indicates whether to enable TLSv1.1 support in Admin Router. (optional) | string | `""` | no |
@@ -30,12 +29,13 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | dcos\_ca\_certificate\_chain\_path | [Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. (optional) | string | `""` | no |
 | dcos\_ca\_certificate\_key\_path | [Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing a single X.509 certificate private key in the OpenSSL PEM format. (optional) | string | `""` | no |
 | dcos\_ca\_certificate\_path | [Enterprise DC/OS] Path (relative to the $DCOS_INSTALL_DIR) to a file containing a single X.509 CA certificate in the OpenSSL PEM format. (optional) | string | `""` | no |
-| dcos\_calico\_vxlan\_enabled | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. dcos_calico_vxlan_enabled is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure | string | `"true"` | no |
-| dcos\_calico\_ipinip\_mtu | The MTU to set on the Calico IPIP tunnel device. This configuration works when dcos_calico_vxlan_enabled is set to be false. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration | string | `"1480"` | no |
-| dcos\_calico\_vxlan\_vni | The virtual network ID used for calico VXLAN. This configuration works when dcos_calico_vxlan_enabled is set to be true | string | `"4096"` | no |
-| dcos\_calico\_vxlan\_port | The UDP port used for calico VXLAN. This configuration works when dcos_calico_vxlan_enabled is set to be true | string | `"4789"` | no |
-| dcos\_calico\_vxlan\_mtu | The MTU to set on the Calico VXLAN tunnel device. This configuration works when dcos_calico_vxlan_enabled is set to be true. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration | string | `"1450"` | no |
-| dcos\_calico\_veth\_mtu | The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration | string | `"1500"` | no |
+| dcos\_calico\_ipinip\_mtu | The MTU to set on the Calico IPIP tunnel device. (optional) | string | `""` | no |
+| dcos\_calico\_network\_cidr | Subnet allocated for calico | string | `""` | no |
+| dcos\_calico\_veth\_mtu | The MTU to set on the veth pair devices. (optional) | string | `""` | no |
+| dcos\_calico\_vxlan\_enabled | Control whether IP-in-IP or VXLAN mode is used for calico. (optional) | string | `""` | no |
+| dcos\_calico\_vxlan\_mtu | The MTU to set on the Calico VXLAN tunnel device. (optional) | string | `""` | no |
+| dcos\_calico\_vxlan\_port | The UDP port used for calico VXLAN. (optional) | string | `""` | no |
+| dcos\_calico\_vxlan\_vni | The virtual network ID used for calico VXLAN. (optional) | string | `""` | no |
 | dcos\_check\_time | Check if Network Time Protocol (NTP) is enabled during DC/OS startup. (optional) | string | `""` | no |
 | dcos\_cluster\_docker\_credentials | Dictionary of Docker credentials to pass. (optional) | string | `""` | no |
 | dcos\_cluster\_docker\_credentials\_dcos\_owned | Indicates whether to store the credentials file in /opt/mesosphere or /etc/mesosphere/docker_credentials. A sysadmin cannot edit /opt/mesosphere directly (optional) | string | `""` | no |
@@ -110,7 +110,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | dcos\_ucr\_default\_bridge\_subnet | IPv4 subnet allocated to the mesos-bridge CNI network for UCR bridge-mode networking. (optional) | string | `""` | no |
 | dcos\_use\_proxy | To enable use of proxy for internal routing (optional) | string | `""` | no |
 | dcos\_variant | Specifies which DC/OS variant it should be: `open` (Open Source) or `ee` (Enterprise Edition) | string | `"open"` | no |
-| dcos\_version | Specifies which DC/OS version instruction to use. Options: 1.13.5, 1.12.4, 1.11.11, etc. See dcos_download_path or dcos_version tree for a full list. | string | `"1.13.5"` | no |
+| dcos\_version | Specifies which DC/OS version instruction to use. Options: 2.0.0, 1.13.6, 1.12.4, 1.11.12, etc. See https://versions.d2iq.com/version for a full list. | string | `"1.13.5"` | no |
 | dcos\_versions\_service\_url | DC/OS Versions Service allows to identify DC/OS versions | string | `"https://versions.d2iq.com"` | no |
 | dcos\_zk\_agent\_credentials | [Enterprise DC/OS] set the ZooKeeper agent credentials (recommended) | string | `""` | no |
 | dcos\_zk\_master\_credentials | [Enterprise DC/OS] set the ZooKeeper master credentials (recommended) | string | `""` | no |
