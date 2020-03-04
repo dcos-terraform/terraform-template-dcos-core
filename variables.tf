@@ -534,3 +534,8 @@ variable "dcos_calico_veth_mtu" {
   default     = ""
   description = "The MTU to set on the veth pair devices. (optional)"
 }
+
+variable "adminrouter_grpc_proxy_port" {
+  description = ""
+  default     = 12379
+}

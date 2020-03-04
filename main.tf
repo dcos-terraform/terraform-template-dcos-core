@@ -128,5 +128,6 @@ data "template_file" "config" {
     dcos_staged_package_storage_uri              = "${var.dcos_staged_package_storage_uri}"
     dcos_package_storage_uri                     = "${var.dcos_package_storage_uri}"
     dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
+    adminrouter_grpc_proxy_port                  = "${var.adminrouter_grpc_proxy_port}"
   }
 }

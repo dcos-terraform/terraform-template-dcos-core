@@ -105,6 +105,7 @@ module "dcos-core-base-example" {
   dcos_ip_detect_contents                      = "${var.dcos_ip_detect_contents}"
   dcos_ip_detect_public_contents               = "${var.dcos_ip_detect_public_contents}"
   dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
+  adminrouter_grpc_proxy_port                  = "${var.adminrouter_grpc_proxy_port}"
 }
 
 output "config" {
