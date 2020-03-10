@@ -119,6 +119,14 @@ output "download_url_checksum" {
   value = "${module.dcos-core-base-example.download_url_checksum}"
 }
 
+output "download_windows_url" {
+  value = "${module.dcos-core-base-example.download_windows_url}"
+}
+
+output "download_windows_url_checksum" {
+  value = "${module.dcos-core-base-example.download_windows_url_checksum}"
+}
+
 output "version" {
   value = "${module.dcos-core-base-example.version}"
 }

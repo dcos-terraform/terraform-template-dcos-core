@@ -1,6 +1,7 @@
 package test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -61,16 +62,28 @@ baz
 func TestVersionService(t *testing.T) {
 	versionTests := map[string]map[string]string{
 		"1.13.1": map[string]string{
-			"download_url":          "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
-			"version":               "1.13.1",
-			"download_url_checksum": "ff9c69412395705fad7887900ad6204a60c950bfd9ec61b62c91630e92536be0",
-			"commit":                "",
+			"download_url":                  "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
+			"version":                       "1.13.1",
+			"download_url_checksum":         "ff9c69412395705fad7887900ad6204a60c950bfd9ec61b62c91630e92536be0",
+			"commit":                        "",
+			"download_windows_url":          "",
+			"download_windows_url_checksum": "",
 		},
 		"1.13.5": map[string]string{
-			"download_url":          "https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh",
-			"version":               "1.13.5",
-			"download_url_checksum": "205218299e76267fde5bba7f4e6dec79fbbf7589702e73b9315c3ad4d36bb27a",
-			"commit":                "",
+			"download_url":                  "https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh",
+			"version":                       "1.13.5",
+			"download_url_checksum":         "205218299e76267fde5bba7f4e6dec79fbbf7589702e73b9315c3ad4d36bb27a",
+			"commit":                        "",
+			"download_windows_url":          "",
+			"download_windows_url_checksum": "",
+		},
+		"2.1.0-beta1": map[string]string{
+			"download_url":                  "https://downloads.dcos.io/dcos/testing/2.1.0-beta1/dcos_generate_config.sh",
+			"version":                       "2.1.0-beta1",
+			"download_url_checksum":         "a4dcdbd8680a7553da43757f62e8e55ccc5657e27ca25c29c25dc344e7cbd74f",
+			"commit":                        "",
+			"download_windows_url":          "https://downloads.dcos.io/dcos/testing/2.1.0-beta1/windows/dcos_generate_config_win.sh",
+			"download_windows_url_checksum": "8ef72f59380ec47ecc0f14bc5ac9115a5d5f5d5a8880384024c7e86a14e5f660",
 		},
 	}
 
@@ -100,10 +113,9 @@ func TestVersionService(t *testing.T) {
 		terraform.InitAndApply(t, terraformOptions)
 
 		// Run `terraform output` to get the values of output variables
-		assert.Equal(t, versionTests[v]["download_url"], terraform.Output(t, terraformOptions, "download_url"))
-		assert.Equal(t, versionTests[v]["version"], terraform.Output(t, terraformOptions, "version"))
-		assert.Equal(t, versionTests[v]["download_url_checksum"], terraform.Output(t, terraformOptions, "download_url_checksum"))
-		assert.Equal(t, versionTests[v]["commit"], terraform.Output(t, terraformOptions, "commit"))
+		for _, output := range []string{"download_url", "version", "download_url_checksum", "commit", "download_windows_url", "download_windows_url_checksum"} {
+			assert.Equalf(t, versionTests[v][output], terraform.Output(t, terraformOptions, output), fmt.Sprintf("For version: %s output: %s", v, output))
+		}
 	}
 }
 
