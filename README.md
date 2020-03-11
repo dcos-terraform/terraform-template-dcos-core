@@ -8,6 +8,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 |------|-------------|:----:|:-----:|:-----:|
 | bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | n/a | yes |
 | custom\_dcos\_download\_path | insert location of dcos installer script (optional) | string | `""` | no |
+| custom\_dcos\_windows\_download\_path | insert location of dcos windows installer script (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_0\_enabled | Indicates whether to enable TLSv1 support in Admin Router. (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_1\_enabled | Indicates whether to enable TLSv1.1 support in Admin Router. (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_2\_enabled | Indicates whether to enable TLSv1.2 support in Admin Router. (optional) | string | `""` | no |
@@ -124,5 +125,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | config | The battle-tested provisioner contents of the output by DC/OS role to perform requried admin actions in behalf of the user as documented in http://mesosphere.com and http://dcos.io |
 | download\_url | This returns the download url either from the custom_dcos_download_path or known list |
 | download\_url\_checksum | This returns the sha256 checksum to download_url |
+| download\_windows\_url | This returns the download url either from the custom_dcos_download_path or known list |
+| download\_windows\_url\_checksum | This returns the sha256 checksum to download_url |
 | version | This returns the DC/OS version |
 
