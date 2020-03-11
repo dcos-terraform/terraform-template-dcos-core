@@ -29,6 +29,7 @@ baz
 			"dcos_fault_domain_detect_contents": multiLineText,
 			"dcos_ip_detect_contents":           multiLineText,
 			"dcos_ip_detect_public_contents":    multiLineText,
+			"dcos_enable_windows_agents":        "true",
 		},
 
 		// Variables to pass to our Terraform code using -var-file options
@@ -57,6 +58,9 @@ baz
 	ipDetectContents, err := config.Get("ip_detect_contents").String()
 	assert.NoError(t, err)
 	assert.Equal(t, multiLineText, ipDetectContents)
+	winAgents, err := config.Get("enable_windows_agents").Bool()
+	assert.NoError(t, err)
+	assert.True(t, winAgents)
 }
 
 func TestVersionService(t *testing.T) {

@@ -105,6 +105,7 @@ module "dcos-core-base-example" {
   dcos_ip_detect_contents                      = "${var.dcos_ip_detect_contents}"
   dcos_ip_detect_public_contents               = "${var.dcos_ip_detect_public_contents}"
   dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
+  dcos_enable_windows_agents                   = "${var.dcos_enable_windows_agents}"
 }
 
 output "config" {
