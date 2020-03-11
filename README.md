@@ -56,6 +56,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | dcos\_enable\_docker\_gc | Indicates whether to run the docker-gc script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. (optional) | string | `""` | no |
 | dcos\_enable\_gpu\_isolation | Indicates whether to enable GPU support in DC/OS. (optional) | string | `""` | no |
 | dcos\_enable\_mesos\_input\_plugin | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false` (optional) | string | `""` | no |
+| dcos\_enable\_windows\_agents | enable windows agents. value must be true or false (optional) | string | `""` | no |
 | dcos\_exhibitor\_address | The address of the load balancer in front of the masters (recommended) | string | `""` | no |
 | dcos\_exhibitor\_azure\_account\_key | the azure account key for exhibitor storage (optional but required with dcos_exhibitor_address) | string | `""` | no |
 | dcos\_exhibitor\_azure\_account\_name | the azure account name for exhibitor storage (optional but required with dcos_exhibitor_address) | string | `""` | no |
