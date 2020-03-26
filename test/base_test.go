@@ -59,8 +59,9 @@ baz
 	assert.NoError(t, err)
 	assert.Equal(t, multiLineText, ipDetectContents)
 	winAgents, err := config.Get("enable_windows_agents").Bool()
-	assert.NoError(t, err)
-	assert.True(t, winAgents)
+	if assert.NoError(t, err) {
+		assert.True(t, winAgents)
+	}
 }
 
 func TestVersionService(t *testing.T) {
