@@ -131,10 +131,11 @@ func TestVersionAirGapped(t *testing.T) {
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
-			"dcos_num_masters":          "1",
-			"dcos_version":              "1.13.1",
-			"custom_dcos_download_path": "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh",
-			"bootstrap_private_ip":      "192.168.1.2",
+			"dcos_num_masters":                  "1",
+			"dcos_version":                      "2.1.0-beta1",
+			"custom_dcos_download_path":         "https://downloads.dcos.io/dcos/stable/2.1.0-beta1/dcos_generate_config.sh",
+			"custom_dcos_windows_download_path": "https://downloads.dcos.io/dcos/stable/2.1.0-beta1/windows/dcos_generate_config_win.sh",
+			"bootstrap_private_ip":              "192.168.1.2",
 		},
 
 		// Variables to pass to our Terraform code using -var-file options
@@ -151,8 +152,9 @@ func TestVersionAirGapped(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
-	assert.Equal(t, "https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh", terraform.Output(t, terraformOptions, "download_url"))
-	assert.Equal(t, "1.13.1", terraform.Output(t, terraformOptions, "version"))
+	assert.Equal(t, "https://downloads.dcos.io/dcos/stable/2.1.0-beta1/dcos_generate_config.sh", terraform.Output(t, terraformOptions, "download_url"))
+	assert.Equal(t, "https://downloads.dcos.io/dcos/stable/2.1.0-beta1/windows/dcos_generate_config_win.sh", terraform.Output(t, terraformOptions, "download_windows_url"))
+	assert.Equal(t, "2.1.0-beta1", terraform.Output(t, terraformOptions, "version"))
 	// we expect thhose to be empty as we're not asking the version serice in this case
 	assert.Equal(t, "", terraform.Output(t, terraformOptions, "download_url_checksum"))
 	assert.Equal(t, "", terraform.Output(t, terraformOptions, "commit"))
