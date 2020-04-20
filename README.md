@@ -7,6 +7,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | n/a | yes |
+| adminrouter\_grpc\_proxy\_port |  | string | `"12379"` | no |
 | custom\_dcos\_download\_path | insert location of dcos installer script (optional) | string | `""` | no |
 | custom\_dcos\_windows\_download\_path | insert location of dcos windows installer script (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_0\_enabled | Indicates whether to enable TLSv1 support in Admin Router. (optional) | string | `""` | no |

@@ -101,3 +101,4 @@ ${dcos_package_storage_uri == "" ? "" : "  package_storage_uri: ${dcos_package_s
 ${dcos_enable_mesos_input_plugin == "" ? "" : "enable_mesos_input_plugin: ${dcos_enable_mesos_input_plugin}"}
 ${dcos_enable_windows_agents == "" ? "" : "enable_windows_agents: ${dcos_enable_windows_agents}"}
 ${dcos_config == "" ? "" : "${dcos_config}"}
+${adminrouter_grpc_proxy_port == "" ? "" : "adminrouter_grpc_proxy_port: ${adminrouter_grpc_proxy_port}"}
