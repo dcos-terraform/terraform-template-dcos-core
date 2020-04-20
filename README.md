@@ -9,6 +9,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | n/a | yes |
 | adminrouter\_grpc\_proxy\_port |  | string | `"12379"` | no |
 | custom\_dcos\_download\_path | insert location of dcos installer script (optional) | string | `""` | no |
+| custom\_dcos\_windows\_download\_path | insert location of dcos windows installer script (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_0\_enabled | Indicates whether to enable TLSv1 support in Admin Router. (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_1\_enabled | Indicates whether to enable TLSv1.1 support in Admin Router. (optional) | string | `""` | no |
 | dcos\_adminrouter\_tls\_1\_2\_enabled | Indicates whether to enable TLSv1.2 support in Admin Router. (optional) | string | `""` | no |
@@ -56,6 +57,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | dcos\_enable\_docker\_gc | Indicates whether to run the docker-gc script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. (optional) | string | `""` | no |
 | dcos\_enable\_gpu\_isolation | Indicates whether to enable GPU support in DC/OS. (optional) | string | `""` | no |
 | dcos\_enable\_mesos\_input\_plugin | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false` (optional) | string | `""` | no |
+| dcos\_enable\_windows\_agents | enable windows agents. value must be true or false (optional) | string | `""` | no |
 | dcos\_exhibitor\_address | The address of the load balancer in front of the masters (recommended) | string | `""` | no |
 | dcos\_exhibitor\_azure\_account\_key | the azure account key for exhibitor storage (optional but required with dcos_exhibitor_address) | string | `""` | no |
 | dcos\_exhibitor\_azure\_account\_name | the azure account name for exhibitor storage (optional but required with dcos_exhibitor_address) | string | `""` | no |
@@ -125,5 +127,7 @@ A Terraform module to install, upgrade, and modify nodes for DC/OS clusters in a
 | config | The battle-tested provisioner contents of the output by DC/OS role to perform requried admin actions in behalf of the user as documented in http://mesosphere.com and http://dcos.io |
 | download\_url | This returns the download url either from the custom_dcos_download_path or known list |
 | download\_url\_checksum | This returns the sha256 checksum to download_url |
+| download\_windows\_url | This returns the download url either from the custom_dcos_download_path or known list |
+| download\_windows\_url\_checksum | This returns the sha256 checksum to download_url |
 | version | This returns the DC/OS version |
 

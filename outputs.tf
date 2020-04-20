@@ -13,6 +13,16 @@ output "download_url_checksum" {
   description = "This returns the sha256 checksum to download_url"
 }
 
+output "download_windows_url" {
+  value       = "${local.dcos_windows_download_path}"
+  description = "This returns the download url either from the custom_dcos_download_path or known list"
+}
+
+output "download_windows_url_checksum" {
+  value       = "${local.dcos_windows_download_checksum}"
+  description = "This returns the sha256 checksum to download_url"
+}
+
 output "version" {
   value       = "${local.dcos_version}"
   description = "This returns the DC/OS version"

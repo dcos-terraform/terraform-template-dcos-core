@@ -8,7 +8,7 @@
 // exact version is needed for latest keyword or minor version
 data "http" "dcos_version" {
   count = "${var.custom_dcos_download_path == "" ? 1 : 0}"
-  url   = "${var.dcos_versions_service_url}/version/${var.dcos_variant}/${var.dcos_version}?filter=version,url,sha256,commit"
+  url   = "${var.dcos_versions_service_url}/version/${var.dcos_variant}/${var.dcos_version}?filter=version,url,sha256,commit,url_windows,sha256_windows"
 }
 
 locals {
@@ -16,6 +16,10 @@ locals {
   dcos_download_checksum = "${var.custom_dcos_download_path == "" ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),2): ""}"
   dcos_version           = "${var.custom_dcos_download_path == "" ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),0): var.dcos_version}"
   dcos_commit            = "${var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),3) : "" : ""}"
+
+  // for backward compatibility to previous version service we must check the len of comma separated list
+  dcos_windows_download_path     = "${coalesce(var.custom_dcos_windows_download_path,length(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0))) > 4 ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),4) : "")}"
+  dcos_windows_download_checksum = "${length(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0))) > 4 ? var.custom_dcos_download_path == "" ? element(split(",",element(coalescelist(data.http.dcos_version.*.body,list("")),0)),5): "" : ""}"
 }
 
 data "template_file" "config" {
@@ -128,6 +132,7 @@ data "template_file" "config" {
     dcos_staged_package_storage_uri              = "${var.dcos_staged_package_storage_uri}"
     dcos_package_storage_uri                     = "${var.dcos_package_storage_uri}"
     dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
+    dcos_enable_windows_agents                   = "${var.dcos_enable_windows_agents}"
     adminrouter_grpc_proxy_port                  = "${var.adminrouter_grpc_proxy_port}"
   }
 }
