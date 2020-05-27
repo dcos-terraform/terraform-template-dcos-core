@@ -4,7 +4,6 @@ module "dcos-core-base-example" {
   bootstrap_private_ip                         = "${var.bootstrap_private_ip}"
   dcos_num_masters                             = "${var.dcos_num_masters}"
   custom_dcos_download_path                    = "${var.custom_dcos_download_path}"
-  custom_dcos_windows_download_path            = "${var.custom_dcos_windows_download_path}"
   dcos_adminrouter_tls_1_0_enabled             = "${var.dcos_adminrouter_tls_1_0_enabled}"
   dcos_adminrouter_tls_1_1_enabled             = "${var.dcos_adminrouter_tls_1_1_enabled}"
   dcos_adminrouter_tls_1_2_enabled             = "${var.dcos_adminrouter_tls_1_2_enabled}"
@@ -106,7 +105,6 @@ module "dcos-core-base-example" {
   dcos_ip_detect_contents                      = "${var.dcos_ip_detect_contents}"
   dcos_ip_detect_public_contents               = "${var.dcos_ip_detect_public_contents}"
   dcos_enable_mesos_input_plugin               = "${var.dcos_enable_mesos_input_plugin}"
-  dcos_enable_windows_agents                   = "${var.dcos_enable_windows_agents}"
   adminrouter_grpc_proxy_port                  = "${var.adminrouter_grpc_proxy_port}"
 }
 
@@ -120,14 +118,6 @@ output "download_url" {
 
 output "download_url_checksum" {
   value = "${module.dcos-core-base-example.download_url_checksum}"
-}
-
-output "download_windows_url" {
-  value = "${module.dcos-core-base-example.download_windows_url}"
-}
-
-output "download_windows_url_checksum" {
-  value = "${module.dcos-core-base-example.download_windows_url_checksum}"
 }
 
 output "version" {
