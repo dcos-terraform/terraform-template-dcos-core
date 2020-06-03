@@ -8,40 +8,25 @@
 // exact version is needed for latest keyword or minor version
 data "http" "dcos_version" {
   count = var.custom_dcos_download_path == "" ? 1 : 0
-  url   = "${var.dcos_versions_service_url}/version/${var.dcos_variant}/${var.dcos_version}?filter=version,url,sha256,commit,url_windows,sha256_windows"
+  url   = "${var.dcos_versions_service_url}/version/${var.dcos_variant}/${var.dcos_version}"
 }
 
 locals {
+  versionobj = var.custom_dcos_download_path == "" ? jsondecode(element(coalescelist(data.http.dcos_version.*.body, [""]), 0)) : map("", "")
   dcos_download_path = coalesce(
     var.custom_dcos_download_path,
-    element(
-      split(
-        ",",
-        element(coalescelist(data.http.dcos_version.*.body, [""]), 0),
-      ),
-      1,
+    lookup(
+      local.versionobj, "url", ""
     ),
   )
-  dcos_download_checksum = var.custom_dcos_download_path == "" ? element(
-    split(
-      ",",
-      element(coalescelist(data.http.dcos_version.*.body, [""]), 0),
-    ),
-    2,
+  dcos_download_checksum = var.custom_dcos_download_path == "" ? lookup(
+    local.versionobj, "sha256", ""
   ) : ""
-  dcos_version = var.custom_dcos_download_path == "" ? element(
-    split(
-      ",",
-      element(coalescelist(data.http.dcos_version.*.body, [""]), 0),
-    ),
-    0,
+  dcos_version = var.custom_dcos_download_path == "" ? lookup(
+    local.versionobj, "version", ""
   ) : var.dcos_version
-  dcos_commit = var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? element(
-    split(
-      ",",
-      element(coalescelist(data.http.dcos_version.*.body, [""]), 0),
-    ),
-    3,
+  dcos_commit = var.custom_dcos_download_path == "" ? var.dcos_version != local.dcos_version ? lookup(
+    local.versionobj, "dcos_commit", ""
   ) : "" : ""
 
   // for backward compatibility to previous version service we must check the len of comma separated list
@@ -160,4 +145,3 @@ data "template_file" "config" {
     adminrouter_grpc_proxy_port                  = var.adminrouter_grpc_proxy_port
   }
 }
-
