@@ -1,5 +1,5 @@
 variable "dcos_ee_download_path" {
-  type = "map"
+  type = map(string)
 
   default = {
     "1.11.0"       = "https://downloads.mesosphere.com/dcos-enterprise/stable/commit/25ec1e97e86e8c33fc775e474a779a7001a203e7/dcos_generate_config.ee.sh"
@@ -35,7 +35,7 @@ variable "dcos_ee_download_path" {
 }
 
 variable "dcos_open_download_path" {
-  type = "map"
+  type = map(string)
 
   default = {
     "1.7-open"     = "https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/dcos_generate_config.sh"
@@ -104,3 +104,4 @@ variable "dcos_open_download_path" {
 
   description = "This is the path of all the open dcos_generate_config.sh by version"
 }
+
